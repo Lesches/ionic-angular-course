@@ -2,6 +2,7 @@ const reason = document.querySelector('#input-reason');
 const amount = document.querySelector('#input-amount');
 const clear = document.querySelector('#clear');
 const confirm = document.querySelector('#confirm');
+const expensesList = document.querySelector('#expenses-list')
 
 confirm.addEventListener('click', () => {
    const enteredReason = reason.value;
@@ -9,6 +10,8 @@ confirm.addEventListener('click', () => {
 
    if (enteredReason.trim().length < 1 || enteredAmount <=0 || enteredAmount.trim().length < 1)
        return;
-   console.log(enteredReason, enteredAmount);
+   const newItem = document.createElement('ion-item');
+   newItem.textContent = enteredReason + ": $" + enteredAmount;
 
+   expensesList.appendChild(newItem);
 });
