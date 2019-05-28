@@ -2,7 +2,12 @@ const reason = document.querySelector('#input-reason');
 const amount = document.querySelector('#input-amount');
 const clear = document.querySelector('#clear');
 const confirm = document.querySelector('#confirm');
-const expensesList = document.querySelector('#expenses-list')
+const expensesList = document.querySelector('#expenses-list');
+
+const clear = () =>{
+    reason.value = '';
+    amount.value = '';
+};
 
 confirm.addEventListener('click', () => {
    const enteredReason = reason.value;
@@ -14,4 +19,8 @@ confirm.addEventListener('click', () => {
    newItem.textContent = enteredReason + ": $" + enteredAmount;
 
    expensesList.appendChild(newItem);
+
+   clear();
 });
+
+clear.addEventListener('click', clear);
