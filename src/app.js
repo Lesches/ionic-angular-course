@@ -3,6 +3,8 @@ const amount = document.querySelector('#input-amount');
 const clear = document.querySelector('#clear');
 const confirm = document.querySelector('#confirm');
 const expensesList = document.querySelector('#expenses-list');
+const totalExpensesOutput = document.querySelector('#total-expenses');
+let totalExpenses = 0;
 
 const clear = () =>{
     reason.value = '';
@@ -19,7 +21,8 @@ confirm.addEventListener('click', () => {
    newItem.textContent = enteredReason + ": $" + enteredAmount;
 
    expensesList.appendChild(newItem);
-
+    totalExpenses += +enteredAmount;
+    totalExpensesOutput.textContent = totalExpenses;
    clear();
 });
 
